@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8" />
 
-	<title> Landing Page </title>
+	<title> Add Connection </title>
 
 	<!--
 		Links CSS style sheet
@@ -41,21 +41,32 @@
 </header>
 
 <!--
-    Creates Introduction
+    Creates Form
 -->
-
 	<main>
-        <p>
-        Welcome to Justin Leiner's Photography Connection site!
-        </p>
-        <br>
-        <p>
-        Attend and create events to connect with fellow Photagraphers in the Charlotte community. 
-        </p>
-        <br>
-        <p>
-        We offer several convient conenctions that help Photgraphers get the technical know how and experience needed to perform at a professional level.   
-        </p>
+        <form action="connections.html" method="get">
+
+        <label for="topic">Topic:</label><br>
+        <input type="text" id="topic" name="topic" placeholder="topic"><br><br>
+        <label for="title">Title:</label><br>
+        <input type="text" id="title" name="title" placeholder="title"><br><br>
+        <label for="host">Host:</label><br>
+        <input type="text" id="host" name="host" placeholder="host"><br><br>
+        <label for="details">Details:</label><br>
+        <input type="text" id="details" name="details" placeholder="description"><br><br>
+        <label for="location">Location:</label><br>
+        <input type="text" id="location" name="location"><br><br>
+        <label for="date">Start Date:</label><br>
+        <input type="date" id="date" name="date"><br><br>
+        <label for="date">Start Time:</label><br>
+        <input type="time" id="sTime" name="sTime"><br><br>
+        <label for="date">End Time:</label><br>
+        <input type="time" id="eTime" name="eTime"><br><br>
+        
+        <input type="submit" value="Create Connection">
+
+        </form>
+
 
 	</main>
 
