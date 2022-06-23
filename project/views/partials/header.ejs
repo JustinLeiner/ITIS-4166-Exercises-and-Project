@@ -1,0 +1,59 @@
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title> Landing Page </title>
+		<!--
+			Links CSS style sheet
+		-->
+		<link rel="stylesheet" href="/css/default_style.css">
+	</head>
+	
+	<body>
+	
+	<!--
+		Creates Header
+	-->
+	<header>
+	
+			<nav class ="main-header">
+				<p>
+				<a href="/">
+				<img src="/images/logo.png" alt="Justin's Photography Logo" width="200" height="100">
+				</a>
+				</p>
+	
+				<a href="/" >Home</a>
+				<a href="/connections" >Connections</a>
+				<%if(user){%>
+					<a href="/connections/newConnection" >New Connection</a>  
+				<%}%>
+
+				
+			</nav>
+	
+			<nav class="user-header">
+
+				<%if(!user){%>
+					<a href="/user/new" > Sign up</a>
+					<a href="/user/login" > Login</a>
+				<%} else {%>
+					<a href="/user/profile" > Profile</a>
+					<a href="/user/logout" > Logout</a>
+				<%}%>
+					
+			</nav>
+
+			<%if(errorMessages.length > 0) {
+				errorMessages.forEach(message=>{%>
+					<div class = 'error'><%=message%></div>
+				<%});
+			}%>
+
+			<%if(successMessages.length > 0) {
+				successMessages.forEach(message=>{%>
+					<div class = 'success'><%=message%></div>
+				<%});
+			}%>
+				
+	</header>

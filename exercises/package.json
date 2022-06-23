@@ -1,0 +1,14 @@
+{
+  "name": "exercises",
+  "version": "1.0.0",
+  "description": "A Simple Express App",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Justin Leiner",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.2"
+  }
+}

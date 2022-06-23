@@ -1,0 +1,60 @@
+<%- include('../partials/header.ejs')%>
+<div class = "content">
+    <h2>Welcome, <%=user.firstName%></h2>
+
+    <%if(connections.length) {%>
+        <h3>You have created the following connections:</h3><br>
+
+    <table style="border: 1px solid; width: 25%">
+        <thead>
+          <th width="auto" style="text-align: left;">Connection    </th>
+          <th width="auto" style="text-align: left;">Category</th>
+          <th width="auto" style="text-align: left;">Actions</th>
+        </thead>
+        <tbody>
+          <%connections.forEach(connection => {%>
+          <tr>
+          <td><a href = '/connections/<%= connection.id%>'><p><%=connection.name%></p></a></td>
+          <td><%=connection.topic %></td>
+          <td><form> 
+            <button type="submit" formmethod="GET" formaction ="/connections/<%= connection.id %>/edit">Edit</button>
+            <button type="submit" formmethod="POST" formaction ="/connections/<%= connection.id %>?_method=DELETE">Delete</button>
+        </form></td>
+      </tr>   
+    
+        <%}) %>
+      </tbody>
+    </table>  
+    <%} else {%>
+        <p>You have not created any connections</p>
+    <%}%>
+
+    <br>
+
+    <%if(rsvps.length > 0) {%>
+        <h3>You have made the following reservations:</h3><br>
+        
+        <table style="border: 1px solid; width: 25%">
+                <thead>
+                  <th width="auto" style="text-align: left;" >Connection    </th>
+                  <th width="auto" style="text-align: left;">Category</th>
+                  <th width="auto" style="text-align: left;">Attendace?</th>
+                </thead>
+                <tbody>
+                  <%rsvps.forEach(rsvp => {%>
+                  <tr>
+                  <td width="auto"><a href = '/connections/<%= rsvp.connection.id%>'><p><%=rsvp.connection.name%></p></a></td>
+                  <td width="auto"><%=rsvp.connection.topic %></td>
+                  <td width="auto"> <%=rsvp.value %> </td>      
+                </tr>
+        <%}) %>  
+      </tbody>
+    </table>    
+    <%} else {%>
+        <p>You have not made any reservations</p>
+    <%}%>
+
+    
+
+    </div>
+    <%- include('../partials/footer.ejs')%>

@@ -1,0 +1,32 @@
+<%- include('../partials/header.ejs')%>
+
+<!--
+    Creates detailed view of connection section
+-->
+    <h1><%= connection.name %></h1>
+    <h2>Category: <%= connection.topic %></h2><br>
+    <h3>Description: </h3>
+    <p><%= connection.description %></p><br> 
+    <p>Location: <%= connection.location %></p>
+    <p>D/T: <%= connection.date %>   <%= connection.startTime %>   to   <%= connection.endTime %></p>
+    <p>Hosted by: <%= connection.hostname.firstName %></p>
+    <img src="<%= connection.imgURL%>" alt="" width="150px" height="100px">
+    
+   <% if(user == connection.hostname._id){%>
+        <form> <button type="submit" formmethod="GET" formaction ="/connections/<%= connection.id %>/edit">Edit</button>
+            <button type="submit" formmethod="POST" formaction ="/connections/<%= connection.id %>?_method=DELETE">Delete</button>
+        </form>  
+    <%} else {%>
+        <h4>RSVP: <%= rsvps %></h4>
+        <form> <button type="submit" formmethod="POST" formaction ="/connections/<%= connection.id %>/rsvp" name="RSVP" value="Yes">Yes</button>
+            <button type="submit" formmethod="POST" formaction ="/connections/<%= connection.id %>/rsvp" name="RSVP" value="Maybe">Maybe</button>
+            <button type="submit" formmethod="POST" formaction ="/connections/<%= connection.id %>/rsvp" name="RSVP" value="No">No</button>
+        </form>  
+    <%} %>
+
+    <!--<form> <input type="submit" value="Delete"> </form> -->
+
+	<!--
+		Creates Footer
+	-->
+    <%- include('../partials/footer.ejs')%>

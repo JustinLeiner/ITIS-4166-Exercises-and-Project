@@ -1,0 +1,41 @@
+<%- include('../partials/header.ejs')%>
+
+<!--
+    Lists Connections
+-->
+
+	<main>
+        <br><br>
+        <% if(connections.length) {%>
+        <h2>Connections</h2>
+       
+        <% for(let i = 0; i < categories.length; i++){%>
+            <h3> <%=categories[i] %></h3>
+
+            <% const result = connections.filter(element => element.topic == categories[i]); %>
+            
+            <ul>
+            <% for(let j = 0; j < result.length; j++) {%>
+                <li>  <a href = "/connections/<%= result[j].id%>"><%= result[j].name%> </a> </li>
+            <%} %>
+            </ul>
+
+        <%} %>
+
+       
+       <!--- > <% for (let i = 0; i < connections.length; i++) {%>
+           <a href = "/connections/<%= connections[i].id%>"><p><%= connections[i].name%></p></a>
+        <%}
+
+         }else {%>
+            <p>There are no connections</p>
+        <%} %>
+
+         -->
+
+	</main>
+
+	<!--
+		Creates Footer
+	-->
+    <%- include('../partials/footer.ejs')%>
